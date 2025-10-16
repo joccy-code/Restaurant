@@ -1,0 +1,186 @@
+# Restaurant Full-Stack App
+
+## Overview
+
+This is a **full-stack restaurant management application**. It allows:
+
+- Admins to manage menu items (add, edit, delete, mark as special, apply discounts).
+- Clients to view the menu with live updates and caching for offline or slow connections.
+- Multi-language support (English, Amharic, Oromo).
+- Category-based filtering and search.
+- Real-time discount price calculation.
+
+The project consists of a **React frontend** and a **Node.js/Express backend** with a MySQL database.
+
+---
+
+## Features
+
+### Client Side
+
+- View menu items with categories.
+- Search and filter by availability, special items, and categories.
+- Display cached menu if server fetch fails.
+- Responsive and modern UI with badges for special items and discounts.
+- Multi-language support.
+
+### Admin Side
+
+- Add/Edit/Delete menu items.
+- Upload images with preview.
+- Set item availability, special status, and discounts.
+- Category management (main dish, drink, fasting).
+
+### Backend
+
+- RESTful API endpoints for menu items.
+- Caching support for faster client responses.
+- Validation for price, discount, and required fields.
+- Image upload handling (base64 or storage URL).
+- Multi-language content support.
+
+---
+
+## Folder Structure
+
+```
+restaurant/
+├── backend/             # Node.js/Express backend
+│   ├── controllers/     # Route controllers
+│   ├── models/          # Database models
+│   ├── routes/          # API routes
+│   ├── utils/           # Utilities (e.g., caching, validation)
+│   ├── .env             # Environment variables
+│   └── server.js        # Entry point
+├── frontend/            # React frontend
+│   ├── src/
+│   │   ├── components/  # UI components
+│   │   ├── pages/       # Client & Admin pages
+│   │   ├── lib/         # API wrapper, types
+│   │   └── App.tsx
+│   ├── public/
+│   └── package.json
+├── .gitignore
+└── README.md
+```
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js >= 18
+- npm or yarn
+- MySQL database
+- Git
+
+---
+
+### Backend Setup
+
+1. Navigate to backend folder:
+
+```bash
+cd backend
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Create `.env` file based on `.env.example`:
+
+```env
+PORT=5000
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=yourpassword
+DB_NAME=restaurant_db
+```
+
+4. Start server:
+
+```bash
+npm run dev
+```
+
+The backend API will be available at `http://localhost:5000`.
+
+---
+
+### Frontend Setup
+
+1. Navigate to frontend folder:
+
+```bash
+cd frontend
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Create `.env` file if needed (e.g., API base URL):
+
+```env
+VITE_API_URL=http://localhost:5000/api
+```
+
+4. Start frontend:
+
+```bash
+npm run dev
+```
+
+The frontend will be available at `http://localhost:5173` (Vite default).
+
+---
+
+## API Endpoints
+
+### Public
+
+- `GET /api/menu` — Get all available menu items
+- `GET /api/menu/:id` — Get single menu item
+
+### Admin (Protected)
+
+- `POST /api/menu` — Create a menu item
+- `PUT /api/menu/:id` — Update a menu item
+- `DELETE /api/menu/:id` — Delete a menu item
+
+---
+
+## Caching Logic
+
+- The frontend stores menu data in **local storage**.
+- If fetching from the server fails, the app uses cached data to display the menu.
+- Provides offline resilience and reduces load on the server.
+
+---
+
+## Contributing
+
+1. Fork the repository.
+2. Create your feature branch: `git checkout -b feature-name`.
+3. Commit your changes: `git commit -m "Add new feature"`.
+4. Push to branch: `git push origin feature-name`.
+5. Create a Pull Request.
+
+---
+
+## License
+
+MIT License © 2025 Jossy
+
+---
+
+## Contact
+
+- GitHub: [https://github.com/joccy-code](https://github.com/joccy-code)
+- Email: [jossyyoseph14@gmail.com](mailto:jossyyoseph14@gmail.com)

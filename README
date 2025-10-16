@@ -1,14 +1,6 @@
-Got it! I’ll prepare a **beautiful, GitHub-ready README** that looks great directly on your GitHub repo page, with proper Markdown formatting, sections, badges, and spacing so you can just copy and paste. Here's the final version:
-
----
 
 ```markdown
 # 🍽️ Restaurant Full-Stack App
-
-![License](https://img.shields.io/badge/License-MIT-green)
-![Node.js](https://img.shields.io/badge/Backend-Node.js-blue)
-![React](https://img.shields.io/badge/Frontend-React-blueviolet)
-![MySQL](https://img.shields.io/badge/Database-MySQL-orange)
 
 A **full-stack restaurant management application** built with **React**, **Node.js/Express**, and **MySQL**.  
 Supports **admin menu management**, **client menu browsing with offline caching**, **multi-language support**, and **real-time discount updates**.
@@ -178,15 +170,4 @@ MIT License © 2025 [Jossy](https://github.com/joccy-code)
 ## ✉️ Contact
 
 * GitHub: [https://github.com/joccy-code](https://github.com/joccy-code)
-* Email: [your.email@example.com](mailto:your.email@example.com)
-
-```
-
----
-
-This will **look clean, structured, and professional** on GitHub. All headings, badges, code blocks, and images are properly formatted.  
-
-If you want, I can also **add GitHub-friendly emojis and color sections for “live demo” or “technologies used”** to make it pop even more visually.  
-
-Do you want me to do that next?
-```
+* Email: [jossyyoseph14@gmail.com](mailto:your.jossyyoseph14@gmail.com)

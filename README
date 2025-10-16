@@ -1,62 +1,62 @@
-# Restaurant Full-Stack App
-
-## Overview
-
-This is a **full-stack restaurant management application**. It allows:
-
-- Admins to manage menu items (add, edit, delete, mark as special, apply discounts).
-- Clients to view the menu with live updates and caching for offline or slow connections.
-- Multi-language support (English, Amharic, Oromo).
-- Category-based filtering and search.
-- Real-time discount price calculation.
-
-The project consists of a **React frontend** and a **Node.js/Express backend** with a MySQL database.
+Perfect! Here's a **GitHub-ready, visually appealing README** for your full-stack restaurant project. It includes badges, sections, and formatting to look professional and easy to read. You can copy this directly into your repo.
 
 ---
 
-## Features
+# 🍽️ Restaurant Full-Stack App
+
+![License](https://img.shields.io/badge/License-MIT-green)
+![Node.js](https://img.shields.io/badge/Backend-Node.js-blue)
+![React](https://img.shields.io/badge/Frontend-React-blueviolet)
+![MySQL](https://img.shields.io/badge/Database-MySQL-orange)
+
+A **full-stack restaurant management application** built with **React**, **Node.js/Express**, and **MySQL**.
+Supports admin menu management, client menu browsing with offline caching, multi-language support, and real-time discount updates.
+
+---
+
+## 🚀 Features
 
 ### Client Side
 
-- View menu items with categories.
-- Search and filter by availability, special items, and categories.
-- Display cached menu if server fetch fails.
-- Responsive and modern UI with badges for special items and discounts.
-- Multi-language support.
+* Browse menu items with **category filters**.
+* **Search** menu items by name or description.
+* **Cached menu** for offline or slow connections.
+* **Responsive UI** with badges for specials & discounts.
+* Multi-language support.
 
 ### Admin Side
 
-- Add/Edit/Delete menu items.
-- Upload images with preview.
-- Set item availability, special status, and discounts.
-- Category management (main dish, drink, fasting).
+* Add/Edit/Delete menu items.
+* Upload images with live preview.
+* Set **availability**, **special status**, and **discounts**.
+* Manage categories: Main Dish, Drink, Fasting.
 
 ### Backend
 
-- RESTful API endpoints for menu items.
-- Caching support for faster client responses.
-- Validation for price, discount, and required fields.
-- Image upload handling (base64 or storage URL).
-- Multi-language content support.
+* RESTful API endpoints for menu items.
+* Caching support for faster client responses.
+* Validation for price, discount, and required fields.
+* Image upload support.
+* Multi-language content handling.
 
 ---
 
-## Folder Structure
+## 🗂️ Folder Structure
 
 ```
 restaurant/
-├── backend/             # Node.js/Express backend
-│   ├── controllers/     # Route controllers
-│   ├── models/          # Database models
-│   ├── routes/          # API routes
-│   ├── utils/           # Utilities (e.g., caching, validation)
-│   ├── .env             # Environment variables
-│   └── server.js        # Entry point
-├── frontend/            # React frontend
+├── backend/             
+│   ├── controllers/     
+│   ├── models/          
+│   ├── routes/          
+│   ├── utils/           
+│   ├── .env             
+│   └── server.js        
+├── frontend/            
 │   ├── src/
-│   │   ├── components/  # UI components
-│   │   ├── pages/       # Client & Admin pages
-│   │   ├── lib/         # API wrapper, types
+│   │   ├── components/  
+│   │   ├── pages/       
+│   │   ├── lib/         
 │   │   └── App.tsx
 │   ├── public/
 │   └── package.json
@@ -66,32 +66,26 @@ restaurant/
 
 ---
 
-## Getting Started
+## ⚙️ Getting Started
 
 ### Prerequisites
 
-- Node.js >= 18
-- npm or yarn
-- MySQL database
-- Git
+* Node.js >= 18
+* npm or yarn
+* MySQL
+* Git
 
 ---
 
 ### Backend Setup
 
-1. Navigate to backend folder:
-
 ```bash
 cd backend
-```
-
-2. Install dependencies:
-
-```bash
 npm install
+cp .env.example .env
 ```
 
-3. Create `.env` file based on `.env.example`:
+Edit `.env`:
 
 ```env
 PORT=5000
@@ -101,86 +95,95 @@ DB_PASSWORD=yourpassword
 DB_NAME=restaurant_db
 ```
 
-4. Start server:
+Start server:
 
 ```bash
 npm run dev
 ```
 
-The backend API will be available at `http://localhost:5000`.
+API will run at `http://localhost:5000`.
 
 ---
 
 ### Frontend Setup
 
-1. Navigate to frontend folder:
-
 ```bash
 cd frontend
-```
-
-2. Install dependencies:
-
-```bash
 npm install
+cp .env.example .env
 ```
 
-3. Create `.env` file if needed (e.g., API base URL):
+Edit `.env`:
 
 ```env
 VITE_API_URL=http://localhost:5000/api
 ```
 
-4. Start frontend:
+Start frontend:
 
 ```bash
 npm run dev
 ```
 
-The frontend will be available at `http://localhost:5173` (Vite default).
+Frontend will run at `http://localhost:5173`.
 
 ---
 
-## API Endpoints
+## 🔗 API Endpoints
 
 ### Public
 
-- `GET /api/menu` — Get all available menu items
-- `GET /api/menu/:id` — Get single menu item
+* `GET /api/menu` — Get all available menu items
+* `GET /api/menu/:id` — Get a single menu item
 
 ### Admin (Protected)
 
-- `POST /api/menu` — Create a menu item
-- `PUT /api/menu/:id` — Update a menu item
-- `DELETE /api/menu/:id` — Delete a menu item
+* `POST /api/menu` — Create a menu item
+* `PUT /api/menu/:id` — Update a menu item
+* `DELETE /api/menu/:id` — Delete a menu item
 
 ---
 
-## Caching Logic
+## 💾 Caching Logic
 
-- The frontend stores menu data in **local storage**.
-- If fetching from the server fails, the app uses cached data to display the menu.
-- Provides offline resilience and reduces load on the server.
+* Frontend stores menu data in **local storage**.
+* If fetching from server fails, cached data is used.
+* Provides **offline support** and reduces server load.
 
 ---
 
-## Contributing
+## 📝 Contributing
 
 1. Fork the repository.
-2. Create your feature branch: `git checkout -b feature-name`.
-3. Commit your changes: `git commit -m "Add new feature"`.
-4. Push to branch: `git push origin feature-name`.
-5. Create a Pull Request.
+2. Create a branch: `git checkout -b feature-name`
+3. Commit your changes: `git commit -m "Add feature"`
+4. Push to branch: `git push origin feature-name`
+5. Create a Pull Request
 
 ---
 
-## License
+## 📷 Screenshots
 
-MIT License © 2025 Jossy
+<div align="center">
+  <img src="screenshots/menu-page.png" width="300" alt="Menu Page"/>
+  <img src="screenshots/admin-page.png" width="300" alt="Admin Page"/>
+</div>
 
 ---
 
-## Contact
+## 📄 License
 
-- GitHub: [https://github.com/joccy-code](https://github.com/joccy-code)
-- Email: [jossyyoseph14@gmail.com](mailto:jossyyoseph14@gmail.com)
+MIT License © 2025 [Jossy](https://github.com/joccy-code)
+
+---
+
+## ✉️ Contact
+
+* GitHub: [https://github.com/joccy-code](https://github.com/joccy-code)
+* Email: [your.email@example.com](mailto:your.email@example.com)
+
+---
+
+If you want, I can **also generate a `.gitignore` template for full-stack** and include caching directories so your repo stays clean.
+
+Do you want me to do that next?

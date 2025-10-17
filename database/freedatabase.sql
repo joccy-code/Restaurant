@@ -1,10 +1,4 @@
 -- =========================
--- Database: restaurant_db
--- =========================
-CREATE DATABASE IF NOT EXISTS restaurant_db;
-USE restaurant_db;
-
--- =========================
 -- Table: admin_users
 -- =========================
 CREATE TABLE IF NOT EXISTS admin_users (
@@ -12,7 +6,7 @@ CREATE TABLE IF NOT EXISTS admin_users (
     username VARCHAR(50) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL,
     role ENUM('admin','staff') DEFAULT 'admin',
-    created_at DATETIME DEFAULT NOW()
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 -- =========================
@@ -23,7 +17,7 @@ CREATE TABLE IF NOT EXISTS categories (
     name_en VARCHAR(50),
     name_am VARCHAR(50),
     name_or VARCHAR(50),
-    created_at DATETIME DEFAULT NOW()
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 -- =========================
@@ -43,8 +37,8 @@ CREATE TABLE IF NOT EXISTS menu_items (
     is_available BOOLEAN DEFAULT TRUE,
     is_special BOOLEAN DEFAULT FALSE,
     discount DECIMAL(5,2) DEFAULT 0.00,
-    created_at DATETIME DEFAULT NOW(),
-    updated_at DATETIME DEFAULT NOW() ON UPDATE NOW(),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NULL DEFAULT NULL,
     FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE SET NULL
 );
 
@@ -57,7 +51,7 @@ CREATE TABLE IF NOT EXISTS promotions (
     start_date DATE,
     end_date DATE,
     discount_percentage DECIMAL(5,2),
-    created_at DATETIME DEFAULT NOW(),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (food_id) REFERENCES menu_items(id) ON DELETE CASCADE
 );
 
@@ -72,7 +66,7 @@ CREATE TABLE IF NOT EXISTS settings (
     phone VARCHAR(50),
     address VARCHAR(255),
     working_hours VARCHAR(100),
-    social_links JSON
+    social_links TEXT
 );
 
 -- =========================
@@ -92,7 +86,7 @@ CREATE TABLE IF NOT EXISTS reservations (
 -- Sample Data: admin_users
 -- =========================
 INSERT INTO admin_users (username, password, role) VALUES
-('admin',1234,'admin');
+('admin','hashed_password_here','admin');
 
 -- =========================
 -- Sample Data: categories

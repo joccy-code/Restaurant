@@ -66,3 +66,19 @@ export const register = async (req, res) => {
     res.status(500).json({ success: false, message: "Server error" });
   }
 };
+
+// Verify token
+export const verifyToken = (req, res) => {
+  const authHeader = req.headers.authorization;
+  if (!authHeader) return res.json({ success: false });
+
+  const token = authHeader.split(" ")[1];
+  if (!token) return res.json({ success: false });
+
+  jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+    if (err) return res.json({ success: false });
+
+    // Optionally fetch full admin info from DB
+    res.json({ success: true, admin: { id: decoded.id, username: "Admin" } });
+  });
+};

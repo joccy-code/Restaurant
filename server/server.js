@@ -6,6 +6,7 @@ import { db } from "./db.js";
 import authRoutes from "./routes/auth.js";
 import menuRoutes from "./routes/menu.js";
 import promotionRoutes from "./routes/promotions.js";
+import contactRoutes from "./routes/contact.js";
 
 dotenv.config();
 
@@ -32,6 +33,7 @@ app.get("/test", async (req, res) => {
 app.use("/api/auth", authRoutes);
 app.use("/api/menu", menuRoutes);
 app.use("/api/promotions", promotionRoutes);
+app.use("/api", contactRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

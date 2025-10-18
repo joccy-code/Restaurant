@@ -3,17 +3,15 @@ import {
   createContactMessage,
   getContactMessages,
   removeContactMessage,
-} from "../controllers/contactController.js";
+} from "../controllers/contact.controller.js";
 
 const router = express.Router();
 
-// ✅ Public: user submits a message
+// 🌍 Public route: user sends message
 router.post("/contact", createContactMessage);
 
-// ✅ Admin: view all messages
-router.get("/admin/contact-messages", getContactMessages);
-
-// ✅ Admin: delete message by ID
-router.delete("/admin/contact-messages/:id", removeContactMessage);
+// 🧑‍💼 Admin routes
+router.get("/contact-messages", getContactMessages);
+router.delete("/contact-messages/:id", removeContactMessage);
 
 export default router;

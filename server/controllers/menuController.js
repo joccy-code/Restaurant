@@ -95,6 +95,12 @@ export const createMenuItem = async (req, res) => {
       discount,
     } = req.body;
 
+    // Ensure category_id is stored as an integer or NULL
+    const categoryId =
+      category_id === undefined || category_id === null || category_id === ""
+        ? null
+        : parseInt(category_id, 10);
+
     const [result] = await db.query(
       `INSERT INTO menu_items 
   (name_en, name_am, name_or, description_en, description_am, description_or, price, category_id, image, is_available, is_special, discount) 
@@ -107,7 +113,7 @@ export const createMenuItem = async (req, res) => {
         description_am,
         description_or,
         price,
-        category_id, // ⚠️ This should actually be the ID of the category, not its name
+        categoryId,
         image,
         is_available,
         is_special,
@@ -152,6 +158,15 @@ export const updateMenuItem = async (req, res) => {
     const filteredFields = Object.fromEntries(
       Object.entries(fields).filter(([key]) => allowedFields.includes(key))
     );
+
+    // If category_id is provided, coerce to integer or NULL
+    if (Object.prototype.hasOwnProperty.call(filteredFields, "category_id")) {
+      const raw = filteredFields.category_id;
+      filteredFields.category_id =
+        raw === undefined || raw === null || raw === ""
+          ? null
+          : parseInt(raw, 10);
+    }
 
     if (Object.keys(filteredFields).length === 0) {
       return res

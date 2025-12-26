@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS menu_items (
     description_am TEXT,
     description_or TEXT,
     price DECIMAL(10,2),
-    image VARCHAR(255),
+    image TEXT,
     is_available BOOLEAN DEFAULT TRUE,
     is_special BOOLEAN DEFAULT FALSE,
     discount DECIMAL(5,2) DEFAULT 0.00,

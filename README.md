@@ -67,16 +67,6 @@ If you know this project uses a specific framework (e.g., Express, Koa, Next.js,
 
    The server commonly runs on http://localhost:3000 (or the PORT you set). If there is a separate frontend, it may run on another port (e.g., 3001).
 
-## Environment Variables
-
-Create a `.env` file with the variables the application expects. Common variables:
-
-- PORT=3000
-- NODE_ENV=development
-- DATABASE_URL=postgres://user:pass@localhost:5432/dbname (or MONGO_URI for MongoDB)
-- JWT_SECRET=your_jwt_secret
-
-Adjust these to the actual environment variables used by the project. If the repo includes `.env.example` or README fragments mentioning env variables, merge those values here.
 
 ## Development
 
